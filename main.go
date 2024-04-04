@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/tarm/serial" // Biblioteca para comunicação serial
@@ -19,10 +20,6 @@ func (g *Garden) water() {
 	fmt.Println("Horta regada!")
 }
 
-func (g *Garden) needsWater() bool {
-	return !g.isWatered
-}
-
 func main() {
 	// Inicializa a horta
 	garden := &Garden{}
@@ -37,7 +34,20 @@ func main() {
 	defer s.Close()
 
 	for {
-		if garden.needsWater() {
+
+		command := []byte{0xC8}
+		_, err := s.Write(command)
+		if err != nil {
+			log.Fatalf("Erro ao enviar comando Firmata: %v", err)
+		}
+		buffer := make([]byte, 1)
+		_, err = s.Read(buffer)
+
+		sensorValue := int(buffer[0])
+
+		time.Sleep(1 * time.Second)
+
+		if sensorValue == 850 {
 			garden.water()
 			_, err := s.Write([]byte("L"))
 			if err != nil {
