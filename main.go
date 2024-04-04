@@ -13,7 +13,7 @@ type Garden struct {
 }
 
 func (g *Garden) water() {
-	
+
 	fmt.Println("Regando a horta...")
 
 	time.Sleep(2 * time.Second)
@@ -35,7 +35,6 @@ func main() {
 	defer s.Close()
 
 	for {
-
 		// Comando Firmata enviado para Arduino
 		command := []byte{0xC8}
 		_, err := s.Write(command)
