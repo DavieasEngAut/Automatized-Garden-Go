@@ -23,7 +23,7 @@ Antes de executar este projeto, certifique-se de ter instalado o seguinte:
 
 1. Clone este repositório em sua máquina local:
 
-git clone https://github.com/Davieas/Automatized-Garden-Go
+  git clone https://github.com/Davieas/Automatized-Garden-Go
 
 1. Conecte o Arduino ao computador via USB.
 
@@ -31,7 +31,8 @@ git clone https://github.com/Davieas/Automatized-Garden-Go
 
 3. Altere o nome da porta serial (Name) no código Go para corresponder à porta serial do Arduino em sua máquina.
 
-4. Compile e execute o código Go: go run main.go
+4. Compile e execute o código Go:
+   go run main.go
 
 ## Contribuir
 Se você quiser contribuir para este projeto, abra uma issue ou envie uma solicitação de pull request. Ficaremos felizes em revisar e discutir suas contribuições!
