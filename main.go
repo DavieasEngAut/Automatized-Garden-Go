@@ -13,6 +13,7 @@ type Garden struct {
 }
 
 func (g *Garden) water() {
+	
 	fmt.Println("Regando a horta...")
 
 	time.Sleep(2 * time.Second)
@@ -35,19 +36,24 @@ func main() {
 
 	for {
 
+		// Comando Firmata enviado para Arduino
 		command := []byte{0xC8}
 		_, err := s.Write(command)
 		if err != nil {
 			log.Fatalf("Erro ao enviar comando Firmata: %v", err)
 		}
+
+		// buffer armazenador do valor lido pelo sensor
 		buffer := make([]byte, 1)
 		_, err = s.Read(buffer)
 
+		// valor do sensor
 		sensorValue := int(buffer[0])
 
 		time.Sleep(1 * time.Second)
 
-		if sensorValue == 850 {
+		// verificação valor do sensor 
+		if sensorValue == 85 {
 			garden.water()
 			_, err := s.Write([]byte("L"))
 			if err != nil {
