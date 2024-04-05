@@ -9,7 +9,7 @@ Este projeto usa os seguintes componentes:
 - Arduino: Placa microcontroladora usada para controlar o sistema e se comunicar com os sensores e atuadores.
 - Sensor de umidade do solo: Detecta a umidade do solo na horta.
 - Bomba de água: Atuador usado para regar a horta.
-- Porta serial: Usada para comunicação entre o Arduino e o computador que executa o código Go.
+- LCD I2C: Visualizar os valores do sensor.
 
 ## Pré-requisitos
 
@@ -34,7 +34,8 @@ Antes de executar este projeto, certifique-se de ter instalado o seguinte:
 3. Altere o nome da porta serial (Name) no código Go para corresponder à porta serial do Arduino em sua máquina.
 
 4. Compile e execute o código Go:
-  ```bash
+
+```bash
 go run main.go
 ```
 
