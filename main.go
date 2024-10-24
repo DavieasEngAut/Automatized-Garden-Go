@@ -22,7 +22,7 @@ func (g *Garden) water() {
 }
 
 func main() {
-	// Inicializa a horta
+	// Inicializa
 	garden := &Garden{}
 
 	// Configuração da comunicação serial com o Arduino
